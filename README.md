@@ -1,6 +1,10 @@
 # firebase
 
-A new Flutter project.
+Hasil Praktikum 
+
+![plot](./img/prak1.PNG)
+
+![plot](./img/prak2.PNG)
 
 ## Getting Started
 
