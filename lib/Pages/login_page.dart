@@ -53,7 +53,10 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage("assets/google_logo.png"), height: 35.0),
+            Image(
+                image: NetworkImage(
+                    "http://4.bp.blogspot.com/-E3cGIqmrTXo/VeckYncc6jI/AAAAAAAACaY/7FhUbUVe8cU/s1600/favicon-logo-google-2015.png"),
+                height: 35.0),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
