@@ -4,6 +4,10 @@ import 'package:firebase/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatelessWidget {
+  FirstScreen({this.email, this.name, this.image});
+  String email;
+  String name;
+  String image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +26,7 @@ class FirstScreen extends StatelessWidget {
             children: <Widget>[
               CircleAvatar(
                 backgroundImage: NetworkImage(
-                  imageUrl,
+                  image != null ? image : imageUrl,
                 ),
                 radius: 60,
                 backgroundColor: Colors.transparent,
@@ -36,7 +40,7 @@ class FirstScreen extends StatelessWidget {
                     color: Colors.black54),
               ),
               Text(
-                name,
+                name != null ? name : nameGoogle,
                 style: TextStyle(
                     fontSize: 25,
                     color: Colors.deepPurple,
@@ -51,7 +55,7 @@ class FirstScreen extends StatelessWidget {
                     color: Colors.black54),
               ),
               Text(
-                email,
+                email != null ? email : emailGoogle,
                 style: TextStyle(
                     fontSize: 25,
                     color: Colors.deepPurple,

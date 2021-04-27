@@ -4,8 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
-String name;
-String email;
+String nameGoogle;
+String emailGoogle;
 String imageUrl;
 Future<String> signInWithGoogle() async {
   await Firebase.initializeApp();
@@ -24,12 +24,12 @@ Future<String> signInWithGoogle() async {
     assert(user.email != null);
     assert(user.displayName != null);
     assert(user.photoURL != null);
-    name = user.displayName;
-    email = user.email;
+    nameGoogle = user.displayName;
+    emailGoogle = user.email;
     imageUrl = user.photoURL;
 // Only taking the first part of the name, i.e., First Name
-    if (name.contains(" ")) {
-      name = name.substring(0, name.indexOf(" "));
+    if (nameGoogle.contains(" ")) {
+      nameGoogle = nameGoogle.substring(0, nameGoogle.indexOf(" "));
     }
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
@@ -44,4 +44,34 @@ Future<String> signInWithGoogle() async {
 Future<void> signOutGoogle() async {
   await googleSignIn.signOut();
   print("User Signed Out");
+}
+
+class AuthEmail {
+  static FirebaseAuth _auth = FirebaseAuth.instance;
+
+  static Future<User> register(String email, String password) async {
+    await Firebase.initializeApp();
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user;
+      return user;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  static Future<User> signIn(String email, String password) async {
+    await Firebase.initializeApp();
+    try {
+      UserCredential result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user;
+      return user;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
