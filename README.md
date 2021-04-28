@@ -6,6 +6,14 @@ Hasil Praktikum
 
 ![plot](./img/prak2.PNG)
 
+Hasil Tugas Login Password
+
+![plot](./img/pr.PNG)
+
+![plot](./img/loginps.PNG)
+
+![plot](./img/hasil.PNG)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
